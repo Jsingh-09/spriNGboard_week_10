@@ -9,7 +9,7 @@ namespace Bowling
     return 200;
   }
   void Game::record_ball (int num_pins) {
-      if(num_pins = 9) {
+      if((num_pins > 10) || (num_pins < 0)) {
         throw std::invalid_argument("num_pins is not 10");
       }
   }

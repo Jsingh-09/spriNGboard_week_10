@@ -15,8 +15,10 @@ TEST_CASE ("The current player score at the end of the game is less than 300 max
 
 TEST_CASE ("The numbers of pins at the starting of the new game is exactly 10")
 {
-  Bowling::Game g;
+  Bowling::Game g; 
   REQUIRE_THROWS(g.record_ball(15));
+  REQUIRE_THROWS(g.record_ball(-20));
+  //REQUIRE_THROWS(g.record_ball(8));
 }
 
 #if 0
