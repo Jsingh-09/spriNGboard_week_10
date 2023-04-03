@@ -6,5 +6,6 @@ namespace Bowling
   {
     public:
       bool is_complete() const;
+      int get_score() const;
   };
 }
