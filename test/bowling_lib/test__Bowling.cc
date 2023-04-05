@@ -33,12 +33,28 @@ TEST_CASE ("Score is being calculated correctly each frame")
   Bowling::Frame frame;   
   frame.record_ball(5);
   frame.record_ball(5);
-  REQUIRE(frame.total_score() >=10);
+  REQUIRE(frame.total_score() == 10);
 }
-
 TEST_CASE ("The start of the new game score is 0")
 {
   Bowling::Frame frame;
   REQUIRE(frame.total_score() == 0);
 }
+TEST_CASE ("STIKE is calculated correctly")
+{
+  Bowling::Frame frame;
+  frame.record_ball(10);
+  frame.record_ball(4);
+  frame.record_ball(4);
+  REQUIRE(frame.total_score() == 18);    
+}
 
+TEST_CASE ("SPARE is calcualted Correctly")
+{
+  Bowling::Frame frame;
+  frame.record_ball(5);
+  frame.record_ball(5);
+  frame.record_ball(2);
+  REQUIRE(frame.total_score() == 12);
+  
+}
