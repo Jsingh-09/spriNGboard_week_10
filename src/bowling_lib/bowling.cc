@@ -2,6 +2,23 @@
 #include <stdexcept>
 namespace Bowling
 {
+  Frame::Frame()
+  :current_score(0)
+  { }
+
+  int Frame::total_score() const
+  {
+    return current_score;
+  }
+  void Frame::record_ball(int num_pins)
+  {
+    current_score += num_pins;
+  }
+
+
+}
+namespace Bowling
+{
   bool Game::is_complete() const {
     return true;
   }

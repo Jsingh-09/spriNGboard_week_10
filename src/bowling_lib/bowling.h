@@ -2,6 +2,17 @@
 
 namespace Bowling
 {
+  class Frame
+  {
+    public:
+      Frame();
+    public:
+      void record_ball(int num_pins);
+      int total_score() const;
+    private:
+      int current_score;
+  };
+
   class Game
   {
     public:

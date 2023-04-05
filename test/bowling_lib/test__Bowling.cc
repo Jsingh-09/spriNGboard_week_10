@@ -20,11 +20,25 @@ TEST_CASE ("The numbers of pins at the starting of the new game is exactly 10")
   REQUIRE_THROWS(g.record_ball(-20));
   //REQUIRE_THROWS(g.record_ball(8));
 }
-
 #if 0
-TEST_CASE ("SPARE scoring is calculate correct")
+TEST_CASE ("Each frame game doesn't exceed 10 pins for two rolls")
 {
-  REQUIRE();
+  Bowling::Game g;
+  g.current_roll_count(5)
+  REQUIRE(g.score() );
 }
 #endif
+TEST_CASE ("Score is being calculated correctly each frame")
+{
+  Bowling::Frame frame;   
+  frame.record_ball(5);
+  frame.record_ball(5);
+  REQUIRE(frame.total_score() >=10);
+}
+
+TEST_CASE ("The start of the new game score is 0")
+{
+  Bowling::Frame frame;
+  REQUIRE(frame.total_score() == 0);
+}
 
