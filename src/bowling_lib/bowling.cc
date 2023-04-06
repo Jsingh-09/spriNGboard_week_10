@@ -4,7 +4,7 @@ namespace Bowling
 {
   Frame::Frame()
   :current_score(0),
-  num_rolls(0)
+  num_roll(0)
   { }
 
   int Frame::total_score() const
@@ -13,19 +13,27 @@ namespace Bowling
   }
   void Frame::record_ball(int num_pins)
   {
-    
     current_score += num_pins;
+    num_roll++;
   }
-  void Frame::strike_count(int roll) const
+  int Frame::strike_count(int roll) const
   {
-    
+    if(num_roll == 1 && current_score == 10)
+      {
+        return 2;
+      }else {
+        return 0;
+      }
   }
-  void Frame::spare_count(int roll) const
+  int Frame::spare_count(int roll) const
   {
-    
+    if(num_roll == 2 && current_score == 10)
+     {
+       return 1;
+       } else {
+       return 0;
+       }
   }
-
-
 }
 namespace Bowling
 {

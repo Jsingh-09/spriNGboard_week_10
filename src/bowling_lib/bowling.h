@@ -9,11 +9,11 @@ namespace Bowling
     public:
       void record_ball(int num_pins);
       int total_score() const;
-      void strike_count(int roll) const;
-      void spare_count(int roll) const;
+      int strike_count(int roll) const;
+      int spare_count(int roll) const;
     private:
       int current_score;
-      int num_rolls;
+      int num_roll;
   };
 
   class Game

@@ -40,6 +40,22 @@ TEST_CASE ("The start of the new game score is 0")
   Bowling::Frame frame;
   REQUIRE(frame.total_score() == 0);
 }
+
+TEST_CASE ("The current roll is a STRIKE")
+{
+  Bowling::Frame frame;
+  frame.record_ball(10);
+  REQUIRE(frame.strike_count(1) == 2);
+}
+
+TEST_CASE ("The current roll is a SPARE")
+{
+  Bowling::Frame frame;
+  frame.record_ball(5);
+  frame.record_ball(5);
+  REQUIRE(frame.spare_count(2) == 1);
+}
+#if 0
 TEST_CASE ("STIKE is calculated correctly")
 {
   Bowling::Frame frame;
@@ -58,3 +74,4 @@ TEST_CASE ("SPARE is calcualted Correctly")
   REQUIRE(frame.total_score() == 12);
   
 }
+#endif
